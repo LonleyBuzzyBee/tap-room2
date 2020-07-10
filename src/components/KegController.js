@@ -3,7 +3,7 @@ import KegList from "./KegList";
 import NewKegForm from "./NewKegForm";
 import KegDetail from './KegDetail';
 import { connect } from 'react-redux';
-
+import PropTypes from "prop-types";
 
 
 class KegController extends React.Component {
@@ -40,7 +40,16 @@ class KegController extends React.Component {
     dispatch(action);
     this.setState({ formVisibleOnPage: false });
   }
-
+    handleDeletingKeg = (id) => {
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_KEG',
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedKeg: null});
+    }
+  
   ToggleForm = () => {
      if (this.state.selectedKeg != null) {
       this.setState({
@@ -83,8 +92,16 @@ class KegController extends React.Component {
     }
   }
 }
+KegController.prototype = {
+  masterKegList: PropTypes.object
+}
+const mapStateToProps = state => {
+  return {
+    masterKegList: state
+  }
+}
 
-KegController = connect()(KegController);
+KegController = connect(mapStateToProps)(KegController);
 
 export default KegController;
 
