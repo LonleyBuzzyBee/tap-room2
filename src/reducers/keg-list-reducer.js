@@ -14,21 +14,11 @@ export default (state = {}, action) => {
         }
       });
     case 'BUY_PINT_FROM_KEG':
-      const keg = Object.assign({}, state, {
-        [id]: {
-          name: name,
-          brand: brand,
-          alcoholContent: alcoholContent,
-          description: description,
-          pint: pint,
-          id: id
-      
-        },
-      })
+  
 
-    const newState = { ...keg };
-    
-      return newState.pint - 1;
+    const newState = { ...state };
+      newState[id].pint - 1
+      return newState[id];
     
   default:
     return state;

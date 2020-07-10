@@ -9,16 +9,16 @@ describe('kegListReducer', () => {
       name: "Poma-cran",
       brand: "Loney Orchards",
       alcoholContent: "%16",
-      pint: 124,
       description: "this is good stuff",
+      pint: 124,
       id: 1
     },
     2: {
       name: "Poma-cran2",
       brand: "Loney Orchards2",
       alcoholContent: "%12",
-      pint: 124,
       description: "this is good stuff2",
+      pint: 124,
       id: 2
     }
   }
@@ -27,8 +27,8 @@ describe('kegListReducer', () => {
       name: "such cider",
       brand: "OG Cider",
       alcoholContent: "%10",
-      pint: 124,
       description: "the best cider",
+      pint: 124,
       id: 1
   };
 
@@ -37,7 +37,7 @@ describe('kegListReducer', () => {
   });
 
   test('Should successfully add new keg data to masterkegList', () => {
-    const {name, brand, alcoholContent, description, pint = 124, id} = kegData;
+    const { name, brand, alcoholContent, description, pint = 124, id } = kegData;
     action = {
       type: 'ADD_KEG',
       name: name,
@@ -59,14 +59,21 @@ describe('kegListReducer', () => {
     });
   });
 
-  
+  test('should decrement a pint', () => {
+    action = {
+      type: 'BUY_PINT_FROM_KEG',
+      id: 1
+    };
+ 
     expect(kegListReducer(currentState, action)).toEqual({
-      2: {name: "Poma-cran2",
-      brand: "Loney Orchards2",
-      alcoholContent: "%12",
-      description: "this is good stuff2",
+      1: {name: "Poma-cran",
+      brand: "Loney Orchards",
+      alcoholContent: "%16",
+      description: "this is good stuff",
       pint: 124,
-      id: 2}
+      id: 1}
     });
   });
+
+});
 
