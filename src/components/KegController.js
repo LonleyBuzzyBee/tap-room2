@@ -85,7 +85,7 @@ class KegController extends React.Component {
     else {
       return (
         <React.Fragment>
-          <KegList masterKegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg} />
+          <KegList kegList={this.props.masterKegList} onKegSelection={this.handleChangingSelectedKeg} />
           <button onClick={this.ToggleForm}>New Keg</button>
         </React.Fragment>
       )
