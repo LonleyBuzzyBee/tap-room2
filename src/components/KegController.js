@@ -2,6 +2,7 @@ import React from 'react';
 import KegList from "./KegList";
 import NewKegForm from "./NewKegForm";
 import KegDetail from './KegDetail';
+import { connect } from 'react-redux';
 
 
 
@@ -10,7 +11,6 @@ class KegController extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegList: [],
       pint : 124,
       selectedKeg: null
     };
@@ -26,8 +26,19 @@ class KegController extends React.Component {
   }
 
   handleAddingNewKegToList = (newKeg) => {
-    const newMasterKegList = this.state.masterKegList.concat(newKeg);
-    this.setState({ masterKegList: newMasterKegList, formVisibleOnPage: false });
+    const { dispatch } = this.props;
+    const { name, brand, alcoholContent, description, pint = 124, id } = newKeg;
+    const action = {
+        type: 'ADD_KEG',
+        name: name,
+        brand: brand,
+        alcoholContent: alcoholContent,
+        description: description,
+        pint: pint,
+        id: id
+    }
+    dispatch(action);
+    this.setState({ formVisibleOnPage: false });
   }
 
   ToggleForm = () => {
@@ -73,6 +84,7 @@ class KegController extends React.Component {
   }
 }
 
+KegController = connect()(KegController);
 
 export default KegController;
 
