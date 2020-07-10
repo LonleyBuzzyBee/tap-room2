@@ -13,27 +13,20 @@ export default (state = {}, action) => {
       
         }
       });
-    case 'BUY_PINT_FROM_KEG':
-      // const newState = { ...state };
-      // if (newState[id]) {
-      //   newState[id].pint - 1;
-      // }
-      Object.assign({}, state, {
-        [id]: {
-          name: name,
-          brand: brand,
-          alcoholContent: alcoholContent,
-          description: description,
-          pint: pint,
-          id: id
-      
-        }
-      });
-    
-      return Object.defineProperty(state[id], 'pint', {
-        value: pint - 1
-      }) ;
-    
+    // case 'BUY_PINT_FROM_KEG':
+    //   // if (newState[id]) {
+    //     //   newState[id].pint - 1;
+    //     // }
+    //   return Object.assign({}, state, {
+    //     [id]: {
+    //       name: name,
+    //       brand: brand,
+    //       alcoholContent: alcoholContent,
+    //       description: description,
+    //       pint: pint - 1,
+    //       id: id
+    //     }
+    //   });
   default:
     return state;
   }
