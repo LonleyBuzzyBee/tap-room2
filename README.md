@@ -7,7 +7,7 @@
 
 ## Components Diagram
 
-[![diagram ](./public/img/Diagram_Tap_Room.png)]
+![diagram ](./public/img/Diagram_Tap_Room.png)
 
 
 
@@ -21,7 +21,7 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 |---|---|---|
 |a user can view the keg list |the user is on the main page|the keg list is displayed or an empty list is displayed|
 |the user can add a keg to the keg list|the user clicks make a new keg a form pops up and the user fills it out|a new keg should be visible on the keg list|
-|   |   |   |
+|a user can delete a keg  | user clicks details and then clicks delete keg| the keg is removed  |
 
 ## Setup/Installation Requirements
 
