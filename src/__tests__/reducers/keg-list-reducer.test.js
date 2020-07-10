@@ -5,21 +5,21 @@ describe('kegListReducer', () => {
   let action;
 
   const currentState = {
-    1: {
+    "1": {
       name: "Poma-cran",
       brand: "Loney Orchards",
       alcoholContent: "%16",
       description: "this is good stuff",
       pint: 124,
-      id: 1
+      id: "1"
     },
-    2: {
+    "2": {
       name: "Poma-cran2",
       brand: "Loney Orchards2",
       alcoholContent: "%12",
       description: "this is good stuff2",
       pint: 124,
-      id: 2
+      id: "2"
     }
   }
 
@@ -29,7 +29,7 @@ describe('kegListReducer', () => {
       alcoholContent: "%10",
       description: "the best cider",
       pint: 124,
-      id: 1
+      id: "1"
   };
 
   test('Should return default state if no action type is recognized', () => {
@@ -62,16 +62,18 @@ describe('kegListReducer', () => {
   test('should decrement a pint', () => {
     action = {
       type: 'BUY_PINT_FROM_KEG',
-      id: 1
+      id: "1"
     };
  
-    expect(kegListReducer(currentState, action)).toEqual({
-      1: {name: "Poma-cran",
-      brand: "Loney Orchards",
-      alcoholContent: "%16",
-      description: "this is good stuff",
-      pint: 124,
-      id: 1}
+    expect(kegListReducer(currentState["1"], action)).toEqual({
+      
+        name: "Poma-cran",
+        brand: "Loney Orchards",
+        alcoholContent: "%16",
+        description: "this is good stuff",
+        pint: 123,
+        id: "1"
+  
     });
   });
 

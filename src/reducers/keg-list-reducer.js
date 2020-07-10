@@ -14,11 +14,21 @@ export default (state = {}, action) => {
         }
       });
     case 'BUY_PINT_FROM_KEG':
-  
-
-    const newState = { ...state };
-      newState[id].pint - 1
-      return newState[id];
+      // const newState = { ...state };
+      // if (newState[id]) {
+      //   newState[id].pint - 1;
+      // }
+    
+      return Object.assign({}, state[id], {
+        
+          name: name,
+          brand: brand,
+          alcoholContent: alcoholContent,
+          description: description,
+          pint: pint - 1,
+          id: id
+     
+      });
     
   default:
     return state;
