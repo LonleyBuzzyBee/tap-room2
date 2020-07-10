@@ -18,17 +18,21 @@ export default (state = {}, action) => {
       // if (newState[id]) {
       //   newState[id].pint - 1;
       // }
-    
-      return Object.assign({}, state[id], {
-        
+      Object.assign({}, state, {
+        [id]: {
           name: name,
           brand: brand,
           alcoholContent: alcoholContent,
           description: description,
-          pint: pint - 1,
+          pint: pint,
           id: id
-     
+      
+        }
       });
+    
+      return Object.defineProperty(state[id], 'pint', {
+        value: pint - 1
+      }) ;
     
   default:
     return state;

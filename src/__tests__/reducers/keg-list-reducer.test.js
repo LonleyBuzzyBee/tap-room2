@@ -73,7 +73,7 @@ describe('kegListReducer', () => {
         description: "this is good stuff",
         pint: 123,
         id: "1"
-  
+      
     });
   });
 
